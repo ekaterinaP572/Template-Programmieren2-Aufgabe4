@@ -34,14 +34,12 @@ Implementieren Sie zudem eine Klasse ```HIVDiagnosticsGUI``` in dem package ```o
 
 ![Beispielfenster](Bilder/Aufgabe4_beispielscreenshot.png)
 
+Hinweis: Am Einfachsten funktioniert das mit verschachtelte `JPane`, von denen jede ein `FlowLayout` hat. Sie können aber auch ein `GridLayout` verwenden. Schauen Sie sich die Beispiele in der [Java-Dokumentation zu LayoutManagern](https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html) an und überlegen Sie, wie Sie so ein Layout hinbekommen könnten.
+
 Das Menü "File" soll die zwei Einträge "About" und "Exit" enthalten:
 
 ![Beispielfenster](Bilder/Aufgabe4_beispielscreenshot2.png)
 
 Neben den Grundlagen aus dem Skript benötigen Sie dafür ein ```JMenu``` mit ```JMenuItems``` - die Verwendung finden Sie auf dieser [Dokumentations-Seite von Oracle](https://docs.oracle.com/javase/tutorial/uiswing/components/menu.html#create) beschrieben. Sie können für diesen Teil der Aufgabe alles auf dieser Seite außer dem Bereich "Creating Menus" ignorieren, mit event handling setzen wir uns in der nächsten Woche auseinander.
 
-Für die Bilder auf den Buttons können sie ein ```javax.swing.ImageIcon``` verwenden, welches im Constructor eine png-Datei nimmt. Die im Beispielscreenshot verwendete Datei finden Sie im repository unter resources/folder_explore.png, sie stammt aus dem für offene Software beliebten [silk iconset von famfamfam](http://www.famfamfam.com/lab/icons/silk/). Das ```ImageIcon``` können Sie dann anstelle eines Textes an den Constructor von ```JButton``` übergeben.
-
-Leider sind automatisierte Tests von Java-GUIs, insbesondere in Umgebungen ohne grafisches System wie die ubuntu-Images auf github, fehleranfällig. Um zu vermeiden, dass in der Hälfte der Fälle die Tests bei Ihnen fehlschlagen, verzichte ich bei der GUI auf automatisierte Tests. Ersetzen Sie bitte stattdessen die Datei Bilder/Aufgabe4_screenshot.png durch einen Screenshot Ihrer GUI, dieser erscheint in dieser REAMDE.md dann hier:
-
-![Screenshot](Bilder/Aufgabe4_screenshot.png)
+Für die Bilder auf den Buttons können sie ein ```javax.swing.ImageIcon``` verwenden, welches im Constructor eine png-Datei nimmt. Wie Sie das `ImageIcon` in den `JButton`-Constructor bekommen, können Sie der [Dokumentation für `JButton`](https://docs.oracle.com/javase/8/docs/api/javax/swing/JButton.html) entnehmen. Die im Beispielscreenshot verwendete Datei finden Sie im repository unter resources/folder_explore.png, sie stammt aus dem für offene Software beliebten [silk iconset von famfamfam](http://www.famfamfam.com/lab/icons/silk/). Das ```ImageIcon``` können Sie dann anstelle eines Textes an den Constructor von ```JButton``` übergeben.
