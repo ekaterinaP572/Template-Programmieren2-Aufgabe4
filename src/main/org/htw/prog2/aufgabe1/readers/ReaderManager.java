@@ -9,6 +9,7 @@ public class ReaderManager<T extends HIVFileReader> {
 
     public void addReader(T reader) {
         readers.add(reader);
+
     }
 
     public T getReaderForFile(String filename) throws NoValidReadersException {

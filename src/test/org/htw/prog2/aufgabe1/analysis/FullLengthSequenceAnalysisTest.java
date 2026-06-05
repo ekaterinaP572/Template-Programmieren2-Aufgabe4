@@ -37,7 +37,7 @@ class FullLengthSequenceAnalysisTest {
     @Test
     void calculateResistancesNoResistances() {
         SequenceFile sequenceFile = new SequenceFile();
-        sequenceFile.addSequence("MKYLM");
+        sequenceFile.addSequence("MMYLM");
         HashMap<String, Double> expected = new HashMap<>();
         expected.put("D1", 0.0);
         expected.put("D2", 0.0);

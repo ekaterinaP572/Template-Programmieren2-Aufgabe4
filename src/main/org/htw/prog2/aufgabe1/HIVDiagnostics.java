@@ -77,7 +77,7 @@ public class HIVDiagnostics {
         mutationReaderManager.addReader(new CSVFileReader());
 
         try {
-            // Use reader managers to determine appropriate readers for all input files, and then use those
+  // Use reader managers to determine appropriate readers for all input files, and then use those
             // readers to read the files
             SequenceFile referencefile = sequenceReaderManager.getReaderForFile(referenceFileName).readFile(referenceFileName);
             SequenceFile patientseqs = sequenceReaderManager.getReaderForFile(patientSequenceFileName).readFile(patientSequenceFileName);

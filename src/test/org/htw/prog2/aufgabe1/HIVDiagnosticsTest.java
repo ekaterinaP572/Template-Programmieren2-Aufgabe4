@@ -26,31 +26,31 @@ class HIVDiagnosticsTest {
     void parseOptions_requiredArguments() {
         assertNull(HIVDiagnostics.parseOptions(new String[] {}));
         assertNull(HIVDiagnostics.parseOptions(
-                "-m HIVMutationPatterns.csv -r protease_reference.fasta".split(" ")));
+                "-m data/HIVMutationPatternsPI.csv -r data/protease_reference.fasta".split(" ")));
         assertNull(HIVDiagnostics.parseOptions(
-                "-m HIVMutationPatterns.csv -d ProteaseInhibitor".split(" ")));
+                "-m data/HIVMutationPatternsPI.csv -d ProteaseInhibitor".split(" ")));
         assertNull(HIVDiagnostics.parseOptions(
-                "-d ProteaseInhibitor -r protease_reference.fasta".split(" ")));
+                "-d data/ProteaseInhibitor -r data/protease_reference.fasta".split(" ")));
         assertNull(HIVDiagnostics.parseOptions(
-                "-m HIVMutationPatterns.csv -d ProteaseInhibitor -r protease_reference.fasta".
+                "-m data/HIVMutationPatternsPI.csv -d ProteaseInhibitor -r data/protease_reference.fasta".
                         split(" ")));
         assertNull(HIVDiagnostics.parseOptions(
-                "-m HIVMutationPatterns.csv -p protease_sequences.fasta -r protease_reference.fasta".
+                "-m data/HIVMutationPatternsPI.csv -p data/protease_sequences.fasta -r data/protease_reference.fasta".
                         split(" ")));
         assertNull(HIVDiagnostics.parseOptions(
-                "-p protease_sequences.fasta -r protease_reference.fasta -d ProteaseInhibitor ".
+                "-p data/protease_sequences.fasta -r data/protease_reference.fasta -d ProteaseInhibitor ".
                         split(" ")));
         assertNotNull(HIVDiagnostics.parseOptions(
-                "-m HIVMutationPatterns.csv -p protease_sequences.fasta -r protease_reference.fasta -d ProteaseInhibitor ".
+                "-m data/HIVMutationPatternsPI.csv -p data/protease_sequences.fasta -r data/protease_reference.fasta -d ProteaseInhibitor ".
                         split(" ")));
     }
 
     @Test
     void parseOptions_argumentValues() {
         CommandLine cli = HIVDiagnostics.parseOptions(
-                "-m HIVMutationPatterns.csv -p protease_sequences.fasta -r protease_reference.fasta -d ProteaseInhibitor ".
+                "-m HIVMutationPatternsPI.csv -p protease_sequences.fasta -r protease_reference.fasta -d ProteaseInhibitor ".
                         split(" "));
-        assertEquals("HIVMutationPatterns.csv", cli.getOptionValue('m'));
+        assertEquals("HIVMutationPatternsPI.csv", cli.getOptionValue('m'));
         assertEquals("protease_sequences.fasta", cli.getOptionValue('p'));
         assertEquals("protease_reference.fasta", cli.getOptionValue('r'));
         assertEquals("ProteaseInhibitor", cli.getOptionValue('d'));
