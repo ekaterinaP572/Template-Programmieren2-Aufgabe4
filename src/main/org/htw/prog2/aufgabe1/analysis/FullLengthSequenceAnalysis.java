@@ -13,33 +13,28 @@ public class FullLengthSequenceAnalysis extends SequenceAnalysis{
         super(reference, sequence, mutation);
     }
     public void calculateResistances(){
-        if(sequence.containsSequence(reference)){
+        if(!sequence.containsSequence(reference)){
             for (int i = 0; i < mutation.getDrugs().size(); i++) {
                 addResistances.put(mutation.getDrugs().get(i), 0.0);
             }
 
         }
-
         else {
             addResistances.putAll(mutation.getMutations().element().getResistances());
-            if (sequence.containsSequence(reference)) {
-                for (int i = 0; i < addResistances.size(); i++) {
-                    if (addResistances.get(mutation.getDrugs().get(i))
-                            <
-                            mutation.getMutations().element().getResistances().get(mutation.getDrugs().get(i))) {
-                        addResistances.put(mutation.getDrugs().get(i),
-                                mutation.getMutations().element().getResistances().get(mutation.getDrugs().get(i)));
+            for (int i = 0; i < mutation.getMutations().size(); i++) {
+                if (sequence.containsSequence(mutation.getMutations().get(i).getSequence(reference))) {
+                        for (int j = 0; j < addResistances.size(); j++) {
+                            if(addResistances.get(mutation.getDrugs().get(i)) <
+                                    mutation.getMutations().get(i).getResistances().get(mutation.getDrugs().get(i))){
+                                addResistances.replace(mutation.getDrugs().get(i),
+                                        mutation.getMutations().get(i).getResistances().get(mutation.getDrugs().get(i)));
+                            }
                     }
                 }
-            } else {
-                for (int i = 0; i < mutation.getDrugs().size(); i++) {
-                    addResistances.put(mutation.getDrugs().get(i), 0.0);
-                }
+
             }
-
-
         }
-    }
+        }
     public HashMap<String, Double> getResistances(){
         calculateResistances();
 
