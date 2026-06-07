@@ -27,17 +27,23 @@ public abstract class SequenceAnalysis {
     }
 
     public String getBestDrug() {
+        FullLengthSequenceAnalysis drugName = new FullLengthSequenceAnalysis(reference,sequence,mutation);
+        double min = 0.0;
         String drug = "";
-        //check.calculateResistances();
+        for (int i = 0; i < drugName.getResistances().size() ; i++) {
+            if (getResistances().get(mutation.getDrugs().get(i))!=0 && getResistances().get(mutation.getDrugs().get(i)) > min) {
+                min = getResistances().get(mutation.getDrugs().get(i));
+                drug = mutation.getDrugs().get(i);
 
-        //for (int i = 0; i < check.getResistances().size(); i++) {
-        //}
-
+            }
+        }
         return drug;
     }
 
     public String getDrugDescriptions() {
-        //check.calculateResistances();
-        return "";
+        String drug = getBestDrug();
+
+
+        return "The best drug for this patient is "+ drug +" with the lowest resistance";
     }
 }

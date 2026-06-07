@@ -1,0 +1,6 @@
+# Data from https://hivdb.stanford.edu/pages/phenoSummary/Pheno.PI.Simple.html
+"Mutation Patterns";"Number of Sequences";"NFV foldn";"SQV foldn";"IDV foldn";"FPV foldn";"ATV foldn";"LPV foldn";"TPV foldn";"DRV foldn"
+1M;2399;7.35;3.251;3.151;1.347;3.133;0.642;1.224;1.919
+3N;1704;4046;1.344;1.345;0.839;2.53;127;1.212;18
+2I,9M;743;2236;4.236;9.134;3.229;4.917;2.723;0.913;0.86
+5M;2399;7.35;3.251;3.151;1.347;3.133;0.642;1.224;1.919

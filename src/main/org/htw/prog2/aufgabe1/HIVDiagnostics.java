@@ -1,5 +1,6 @@
 package org.htw.prog2.aufgabe1;
 import org.apache.commons.cli.*;
+import org.htw.prog2.aufgabe1.analysis.FullLengthSequenceAnalysis;
 import org.htw.prog2.aufgabe1.files.MutationFile;
 import org.htw.prog2.aufgabe1.files.SequenceFile;
 import org.htw.prog2.aufgabe1.readers.*;
@@ -87,6 +88,12 @@ public class HIVDiagnostics {
                     referencefile.getFirstSequence().length() + " Aminosäuren");
             System.out.println("Anzahl der eingelesenen Patientensequenzen: " +
                     patientseqs.getNumberOfSequences());
+
+
+            FullLengthSequenceAnalysis test = new FullLengthSequenceAnalysis(referencefile.getFirstSequence(), patientseqs, patterns);
+            System.out.println(test.getDrugDescriptions());
+
+            new HIVDiagnosticsGUI().setVisible(true);
             // Ausgabe der vorhergesagten Medikamentresistenzen
 //            System.out.println("Vorhersage der Medikamentenresistenzen:");
 //            FullLengthSequenceAnalysis analysis = new FullLengthSequenceAnalysis(referencefile.getFirstSequence(),
